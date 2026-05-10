@@ -1,7 +1,7 @@
 /* ============================================================
    YAPPA FOUNDATION — style.css
    Struktur: Reset → Variables → Base → Layout → Components →
-             Sections (per halaman) → Responsive
+             Sections (Page) → Responsive
    ============================================================ */
 
 
@@ -242,7 +242,7 @@ header {
 .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* ============================================================
-   8. HERO — PAGE HERO (semua halaman selain index)
+   8. HERO — PAGE HERO (all pages except the index page)
    ============================================================ */
 
 /* Page hero standar — dipakai about, contact, programs, gallery, dll */
@@ -289,9 +289,9 @@ header {
 }
 
 /* ============================================================
-   KHUSUS INDEX — .hero-section-index
-   Ganti <section class="page-hero hero-about"> di index.html
-   menjadi <section class="hero-section-index">
+   SPECIAL INDEX — .hero-section-index
+   Replace <section class="page-hero hero-about"> in index.html
+   with <section class="hero-section-index">
    ============================================================ */
 .hero-section-index {
   display: block;
@@ -1763,11 +1763,10 @@ header {
 }
 
 /* ==========================================================================
-   PERBAIKAN KE-3 (ACTIVITIES HOVER, LEADERSHIP P BOLD, VISION CENTER)
-   PASTE DI BARIS PALING BAWAH css/style.css
+    (ACTIVITIES HOVER, LEADERSHIP IN BOLD, VISION CENTER)
    ========================================================================== */
 
-/* --- 1. MENGEMBALIKAN EFEK HOVER GELAP & TEKS DI ACTIVITIES --- */
+/* --- 1. RESTORE THE DARK HOVER EFFECT & TEXT IN ACTIVITIES --- */
 .activity-card {
   position: relative !important;
   overflow: hidden !important;
@@ -1776,7 +1775,7 @@ header {
   position: relative;
   z-index: 1;
 }
-/* Layar gelap transparan (default tembus pandang) */
+/* Transparent dark screen (default: see-through) */
 .activity-card::after {
   content: "";
   position: absolute;
@@ -1786,7 +1785,7 @@ header {
   z-index: 2;
   pointer-events: none;
 }
-/* Teks overlay (default menghilang & turun) */
+/* Overlay text (default: hidden and scrolled down) */
 .activity-card .overlay {
   position: absolute !important;
   bottom: 20px !important;
@@ -1805,22 +1804,22 @@ header {
   text-align: center;
   display: block !important;
 }
-/* Efek saat kursor diarahkan (Hover) */
+/* Hover effect */
 .activity-card:hover::after {
-  background: rgba(0,0,0,0.65) !important; /* Layar jadi gelap 65% */
+  background: rgba(0,0,0,0.65) !important; /* Transparent dark screen (default: see-through) */
 }
 .activity-card:hover .overlay {
-  opacity: 1 !important; /* Teks muncul */
+  opacity: 1 !important; /* Overlay text (default: hidden and scrolled down) */
   transform: translateY(0) !important; /* Teks naik ke posisi semula */
 }
 
-/* --- 2. MEMPERBAIKI TEKS BOLD DI LEADERSHIP TEAM (ABOUT) --- */
+/* --- 2. CORRECTING THE BOLD TEXT IN THE LEADERSHIP TEAM (ABOUT) SECTION --- */
 .leader-card p {
-  font-weight: 400 !important; /* Memaksa teks kembali normal (tidak bold) */
+  font-weight: 400 !important; /* Force the text to return to normal (not bold) */
   font-size: 14px !important;
 }
 
-/* --- 3. MENENGAHKAN VISION & MISSION (HOME PAGE) --- */
+/* --- 3. HIGHLIGHTING THE VISION & MISSION (HOME PAGE) --- */
 .vision h2, 
 .vision .subtitle,
 .vision-section h2,

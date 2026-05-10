@@ -3,7 +3,7 @@
    ============================================================ */
 
 // ============================================================
-// KONFIGURASI SUPABASE
+// SUPABASE CONFIGURATION
 // ============================================================
 const SUPABASE_URL       = "https://jdzwkhmgfenmxpkkjikk.supabase.co";
 const SUPABASE_PUBLIC_KEY = "sb_publishable_nmu6tsYcqZxpAJ1M9unE9A_SDtlYYNE";
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ============================================================
-// 5. POPUP HELPERS (global, dipanggil dari onclick HTML)
+// 5. POPUP HELPERS (global, called from an HTML onclick event)
 // ============================================================
 function closeRegistrationPopup() {
   const popup = document.getElementById("registrationPopup");
