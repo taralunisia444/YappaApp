@@ -911,7 +911,7 @@ header {
   border-color: var(--secondary-blue);
 }
 /* saat hover, h4 (judul seperti "Compassion") tetap putih, bukan biru */
-.leader-card:hover h4 { color: var(--white) !important; }
+.leader-card:hover h3 { color: var(--white) !important; }
 .leader-card:hover p  { color: var(--white) !important; }
 .leader-card:hover .icon-box { background: rgba(255,255,255,.22); }
 .leader-card:hover .icon-box img { filter: brightness(0) invert(1); }
