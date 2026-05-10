@@ -291,7 +291,7 @@ function closeDonationPopup() {
       .sort(function (a, b) { return b[0].localeCompare(a[0]); })
       .forEach(function ([value, label]) {
         const opt = document.createElement("option");
-        opt.value   = value;
+        opt.value       = value;
         opt.textContent = label;
         monthFilter.appendChild(opt);
       });
@@ -303,7 +303,9 @@ function closeDonationPopup() {
     let found = false;
 
     galleryItems.forEach(function (item) {
-      const title     = ((item.querySelector(".overlay h4") || {}).textContent || "").toLowerCase();
+      // gallery.html pakai <h3> di overlay, bukan h4
+      const titleEl   = item.querySelector(".overlay h4") || item.querySelector(".overlay h3");
+      const title     = (titleEl ? titleEl.textContent : "").toLowerCase();
       const dateText  = getDateText(item).toLowerCase();
       const parsed    = parseDate(getDateText(item));
       const monthLabel = parsed ? parsed.label.toLowerCase() : "";
@@ -608,8 +610,32 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function togglePayment(show) {
-    if (amountSection)   amountSection.style.display = show ? "block" : "none";
+    // Target elemen amount dan payment secara spesifik
+    const amountBtnsEl  = document.querySelector(".amount-buttons");
+    const customAmountEl = document.getElementById("customAmount");
+    const smallTextEl   = document.querySelector(".small-text");
+    const amountLabelEl = document.querySelector(".donation-box h4[data-section='amount']");
+
+    // Sembunyikan/tampilkan amount buttons
+    if (amountBtnsEl)    amountBtnsEl.style.display    = show ? "flex" : "none";
+    if (customAmountEl)  customAmountEl.style.display  = show ? "block" : "none";
+    if (smallTextEl)     smallTextEl.style.display     = show ? "block" : "none";
+    if (amountLabelEl)   amountLabelEl.style.display   = show ? "block" : "none";
+
+    // Sembunyikan/tampilkan payment options
     paymentOptions.forEach(function (el) { el.style.display = show ? "block" : "none"; });
+
+    // Sembunyikan/tampilkan payment-detail box
+    const payDetailEl = document.getElementById("payment-detail");
+    if (payDetailEl) payDetailEl.style.display = show ? "block" : "none";
+
+    // Payment Method label
+    const allH4 = document.querySelectorAll(".donation-box h4");
+    allH4.forEach(function(h4) {
+      if (h4.textContent.trim() === "Payment Method") {
+        h4.style.display = show ? "block" : "none";
+      }
+    });
   }
 
   // Submit donasi
