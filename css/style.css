@@ -733,7 +733,7 @@ header {
 .volunteer-form .form-row { display: flex; gap: 10px; align-items: flex-start; }
 .volunteer-form .form-row input  { flex: 1; min-width: 0; }
 .volunteer-form .form-row textarea { flex: 1; min-width: 0; }
-/* Khusus row address+age: textarea lebih lebar, age lebih sempit */
+/* For the “row address+age” row: make the text area wider and the “age” field narrower */
 .volunteer-form .form-row textarea + input[id="age"],
 .volunteer-form .form-row input[id="age"] { flex: 0 0 90px; }
 .volunteer-form textarea { resize: vertical; height: 90px; }
@@ -910,13 +910,13 @@ header {
   background: var(--secondary-blue);
   border-color: var(--secondary-blue);
 }
-/* saat hover, h4 (judul seperti "Compassion") tetap putih, bukan biru */
+/* When hovered over, the H3 (headings like “Compassion”) remain white, not blue */
 .leader-card:hover h3 { color: var(--white) !important; }
 .leader-card:hover p  { color: var(--white) !important; }
 .leader-card:hover .icon-box { background: rgba(255,255,255,.22); }
 .leader-card:hover .icon-box img { filter: brightness(0) invert(1); }
 
-/* Leadership subtitle — tidak bold */
+/* Leadership subtitle*/
 .leadership-subtitle {
   text-align: center;
   font-size: 14px;
@@ -1612,7 +1612,7 @@ header {
   }
   .logo { flex: 1; }
 
-  /* Nav links & btns: tersembunyi default, muncul saat .active */
+  /* Navigation links and buttons: hidden by default, appear when .active */
   .nav-links,
   .nav-btns {
     display: none;
